@@ -56,6 +56,10 @@ public:
         }
         std::cout << "]" << std::endl;
     }
+
+    ListNode *getIntersectionNode(const ListNode &other)
+    {
+    }
 };
 
 int main()
