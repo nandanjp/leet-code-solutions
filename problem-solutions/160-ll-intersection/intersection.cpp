@@ -31,6 +31,7 @@ public:
             delete prev;
         }
     }
+
     void insert(int val)
     {
         ListNode *newNode = new ListNode{val};
@@ -57,8 +58,33 @@ public:
         std::cout << "]" << std::endl;
     }
 
-    ListNode *getIntersectionNode(const ListNode &other)
+    ListNode *getIntersectionNode(const LinkedList &other)
     {
+        int m = 0, n = 0;
+
+        ListNode *curr = this->head;
+        while (curr)
+            ++m, curr = curr->next;
+
+        curr = other.head;
+        while (curr)
+            ++n, curr = curr->next;
+
+        ListNode *headA = this->head, *headB = other.head;
+        for (int i = 0; i < (m - n); ++i)
+            headA = headA->next;
+        for (int i = 0; i < (n - m); ++i)
+            headB = headB->next;
+
+        while (headA && headB)
+        {
+            if (headA == headB)
+                return headA;
+
+            headA = headA->next;
+            headB = headB->next;
+        }
+        return nullptr;
     }
 };
 
