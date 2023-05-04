@@ -24,7 +24,7 @@ int searchInsert(vector<int> &nums, int target)
     return low;
 }
 
-void print_vex(const std::vector<int> &nums)
+void print_vec(const std::vector<int> &nums)
 {
     std::cout << "[";
     for (std::vector<int>::const_iterator it = nums.cbegin(); it != nums.cend(); ++it)
